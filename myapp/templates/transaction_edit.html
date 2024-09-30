@@ -1,0 +1,49 @@
+{%extends 'base.html'%}
+
+{%block main_block%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            
+            <form action="" method="post" class="border border-dark border-2 p-4 rounded">
+                <h1 style="text-align: center;">EDIT TRANSACTION</h1>
+                {%csrf_token%}
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Enter title</label>
+                        {{form.title}}
+                    </div>
+                    <div class="col-6">
+                        <label for="">Enter amount</label>
+                        {{form.amount}}
+                    </div> 
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                      <label for="">select category</label>
+                      <select name="category_object" id="" class="form-select form-control">
+                        {%for cat in categories%}
+                        <option value="{{cat.id}}">{{cat.name}}</option>
+                        {%endfor%}
+                      </select>
+                    </div> 
+               
+                    <div class="col-6">
+                     <label for="">select payment method</label>
+                     {{form.payment_method}}
+                    </div> 
+                </div>
+                
+                <div class="row"></div>
+                <button type="submit">add</button>
+            </form>
+        </div>
+      
+    </div>
+ <div class="col-3"></div>
+
+ </div>
+</div>
+{%endblock%}
